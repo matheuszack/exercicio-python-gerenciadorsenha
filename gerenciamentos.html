@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gerenciador de Senhas</title>
+</head>
+<body>
+    <h1>Gerenciador de Senhas</h1>
+    <form action="/adicionar_senha" method="post">
+        <label for="site">Site ou Serviço:</label>
+        <input type="text" id="site" name="site"><br><br>
+        <label for="usuario">Usuário:</label>
+        <input type="text" id="usuario" name="usuario"><br><br>
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha"><br><br>
+        <input type="submit" value="Adicionar Senha">
+    </form>
+    <h2>Senhas Armazenadas</h2>
+    <table>
+        <tr>
+            <th>Site</th>
+            <th>Usuário</th>
+            <th>Senha</th>
+        </tr>
+        {% for senha in senhas %}
+        <tr>
+            <td>{{ senha.site }}</td>
+            <td>{{ senha.usuario }}</td>
+            <td>{{ senha.senha }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
